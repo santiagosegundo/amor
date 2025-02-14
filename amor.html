@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Para mi amor 💖</h2>
+        <p>Para ver nuestro recuerdo especial, resuelve este acertijo:</p>
+        <p><b>¿Cuál es mi botana favorita?</b></p>
+        <p><i>Pista: Un sábado la pasamos juntos, antes de ser pareja. Comía como conejo</i></p>
+        <input type="text" id="respuesta" placeholder="Escribe tu respuesta aquí...">
+        <button onclick="verificarRespuesta()">Comprobar</button>
+        <p id="mensaje" class="hidden"></p>
+        <div id="sorpresa" class="hidden">
+            <p>¡Lo lograste, mi amor! ❤️</p>
+            <img src="nosotros.jpg" alt="Nuestra foto juntos" width="100%">
+            <audio id="cancion" src="lady_in_red.mp3"></audio>
+        </div>
+    </div>
+
+    <script>
+        function verificarRespuesta() {
+            var respuesta = document.getElementById("respuesta").value.toLowerCase();
+            var correcta = "galletas";
+            var mensaje = document.getElementById("mensaje");
+            var sorpresa = document.getElementById("sorpresa");
+            var cancion = document.getElementById("cancion");
+
+            if (respuesta === correcta) {
+                mensaje.classList.add("hidden");
+                sorpresa.classList.remove("hidden");
+                cancion.play();
+            } else {
+                mensaje.textContent = "Casi, pero no. Inténtalo de nuevo, mi amor 💖";
+                mensaje.classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
